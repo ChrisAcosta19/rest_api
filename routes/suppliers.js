@@ -49,7 +49,7 @@ router.post('/save', function(req, res, next) {
   .catch(error => res.status(400).send(error)) 
 });
 
-router.put('/update', function(req, res, next) {  
+router.put('/update/:id', function(req, res, next) {  
 
   let {SupplierID, SupplierName, ContactName, Address, City, PostalCode, Country, Phone} = req.body;
       
