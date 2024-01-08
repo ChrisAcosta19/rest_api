@@ -6,6 +6,13 @@ const Suppliers = require('../models').suppliers;
 
 /* GET users listing. */
 router.get('/findAll/json', function(req, res, next) {
+   /* Verificador de autorización */
+   const { role } = req.user;
+
+   if (role !== process.env.ADMIN) {
+     return res.sendStatus(401);
+   }
+
   Suppliers.findAll({  
   })  
   .then(users => {  
